@@ -1,52 +1,26 @@
 using System;
 
-
-
 namespace HeadFirstDesignPatterns.Command.RemoteControl
-
 {
+	/// <summary>
+	/// Summary description for CeilingFanOnCommand.
+	/// </summary>
+	public class CeilingFanOffCommand : Command
+	{
+		CeilingFan ceilingFan;
 
-    /// <summary>
+		public CeilingFanOffCommand(CeilingFan ceilingFan)
+		{
+			this.ceilingFan = ceilingFan;
+		}
 
-    /// Summary description for CeilingFanOnCommand.
+		#region Command Members
 
-    /// </summary>
+		public object Execute()
+		{
+			return ceilingFan.Off();
+		}
 
-    public class CeilingFanOffCommand : Command
-
-    {
-
-        CeilingFan ceilingFan;
-
-
-
-        public CeilingFanOffCommand(CeilingFan ceilingFan)
-
-        {
-
-            this.ceilingFan = ceilingFan;
-
-        }
-
-
-
-        #region Command Members
-
-
-
-        public object Execute()
-
-        {
-
-            return ceilingFan.Off();
-
-        }
-
-
-
-        #endregion
-
-    }
-
+		#endregion
+	}
 }
-

@@ -1,80 +1,40 @@
 using System;
-
 using System.Configuration;
 
-
-
 namespace HeadFirstDesignPatterns.Decorator.Starbuzz
-
 {
+	/// <summary>
+	/// Summary description for Expresso.
+	/// </summary>
+	public class Expresso: Beverage
+	{
+		public Expresso()
+		{}
 
-    /// <summary>
+		public override double Cost()
+		{
+			return GetSize(base.Size);
+		}
 
-    /// Summary description for Expresso.
+		public override string GetDescription()
+		{
+			return "Expresso";
+		}
 
-    /// </summary>
-
-    public class Expresso: Beverage
-
-    {
-
-        public Expresso()
-
-        {}
-
-
-
-        public override double Cost()
-
-        {
-
-            return GetSize(base.Size);
-
-        }
-
-
-
-        public override string GetDescription()
-
-        {
-
-            return "Expresso";
-
-        }
-
-
-
-        private double GetSize(BeverageSize size)
-
-        {
-
-            switch(size)
-
-            {
-
-                case BeverageSize.TALL:
-
-                    return Convert.ToDouble(ConfigurationSettings.AppSettings["ExpressoSizeTall"]);
-
+		private double GetSize(BeverageSize size)
+		{
+			switch(size)
+			{
+                 case BeverageSize.TALL:
+                    return 1.5 ;
                 case BeverageSize.GRANDE:
-
-                    return Convert.ToDouble(ConfigurationSettings.AppSettings["ExpressoSizeGrande"]);
-
+                    return 1.75 ;
                 case BeverageSize.VENTI:
-
-                    return Convert.ToDouble(ConfigurationSettings.AppSettings["ExpressoSizeVenti"]);
-
+                    return 3 ;
                 default:
-
                     return 1.50;
+			}
+		}
 
-            }
-
-        }
-
-
-
-    }
-
+	}
 }
-
