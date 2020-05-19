@@ -1,61 +1,54 @@
-using System;
 using System.Collections;
 
 namespace HeadFirstDesignPatterns.Observer.WeatherData
 {
-	/// <summary>
-	/// Summary description for WeatherData.
-	/// </summary>
-	public class WeatherData : ISubject
-	{
-		private ArrayList observers;
-		private float temperature;
-		private float humidity;
-		private float pressure;
+    /// <summary>
+    /// Summary description for WeatherData.
+    /// </summary>
+    public class WeatherData : ISubject
+    {
+        private float humidity;
+        private ArrayList observers;
+        private float pressure;
+        private float temperature;
 
-		public WeatherData()
-		{
-			observers = new ArrayList();
-		}
+        public WeatherData()
+        {
+            observers = new ArrayList();
+        }
 
-		#region ISubject Members
+        public void MeasurementsChanged() => NotifyObserver();
 
-		public void RegisterObserver(IObserver o)
-		{
-			observers.Add(o);
-		}
+        public void SetMeasurements(float temperature, float humidity,
+            float pressure)
+        {
+            this.temperature = temperature;
+            this.humidity = humidity;
+            this.pressure = pressure;
+            MeasurementsChanged();
+        }
 
-		public void RemoveObserver(IObserver o)
-		{
-			int i = observers.IndexOf(o);
-			if(i >= 0)
-			{
-				observers.Remove(o);
-			}
-		}
+        #region ISubject Members
 
-		public void NotifyObserver()
-		{
-			foreach(IObserver observer in observers)
-			{
-				observer.Update(temperature,humidity,pressure);
-			}
-		}
+        public void RegisterObserver(IObserver o) => observers.Add(o);
 
-		#endregion
+        public void RemoveObserver(IObserver o)
+        {
+            int i = observers.IndexOf(o);
+            if (i >= 0)
+            {
+                observers.Remove(o);
+            }
+        }
 
-		public void MeasurementsChanged()
-		{
-			NotifyObserver();
-		}
+        public void NotifyObserver()
+        {
+            foreach (IObserver observer in observers)
+            {
+                observer.Update(temperature, humidity, pressure);
+            }
+        }
 
-		public void SetMeasurements(float temperature, float humidity,
-			float pressure)
-		{
-			this.temperature = temperature;
-			this.humidity = humidity;
-			this.pressure = pressure;
-			MeasurementsChanged();
-		}
-	}
+        #endregion
+    }
 }
