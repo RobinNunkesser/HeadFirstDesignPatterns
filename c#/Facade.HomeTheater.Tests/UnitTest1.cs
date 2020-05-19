@@ -1,11 +1,9 @@
-﻿using System;
 using System.Text;
-using Xunit;
-using HeadFirstDesignPatterns.Facade.HomeTheater;
+using NUnit.Framework;
 
-namespace UnitTests
+namespace HeadFirstDesignPatterns.Facade.HomeTheater.Tests
 {
-    public class FacadeHomeTheater : IDisposable
+    public class Tests
     {
         #region Members
         Amplifier amp;
@@ -26,7 +24,7 @@ namespace UnitTests
         #endregion//Members
 
         #region Setup
-        public FacadeHomeTheater()
+        public Tests()
         {
             amp = new Amplifier("Top-O-Line Amplifier");
             tuner = new Tuner("Top-O-Line Tuner", amp);
@@ -69,7 +67,7 @@ namespace UnitTests
         #endregion//TearDown Dispose()
 
         #region TestHomeTheaterMovie
-        [Fact]
+        [Test]
         public void TestHomeTheaterMovie()
         {
             expectedWatchMovieOutput.Append("Get ready to watch a movie...\n");
@@ -96,15 +94,15 @@ namespace UnitTests
             expectedEndMovieOutput.Append("Top-O-Line DVD Player eject\n");
             expectedEndMovieOutput.Append("Top-O-Line DVD Player off\n");
 
-            Assert.Equal(expectedWatchMovieOutput.ToString(),
+            Assert.AreEqual(expectedWatchMovieOutput.ToString(),
                 homeTheater.WatchMovie("Toy Story"));
-            Assert.Equal(expectedEndMovieOutput.ToString(),
+            Assert.AreEqual(expectedEndMovieOutput.ToString(),
                 homeTheater.EndMovie());
         }
         #endregion//TestHomeTheaterMovie
 
         #region TestHomeTheaterCD
-        [Fact]
+        [Test]
         public void TestHomeTheaterCD()
         {
             expectedListenToCDOutput.Append("Get ready for an audio experence...\n");
@@ -122,15 +120,15 @@ namespace UnitTests
             expectedEndCDOutput.Append("Top-O-Line CD Player eject\n");
             expectedEndCDOutput.Append("Top-O-Line CD Player off\n");
 
-            Assert.Equal(expectedListenToCDOutput.ToString(),
+            Assert.AreEqual(expectedListenToCDOutput.ToString(),
                 homeTheater.ListenToCd("Dark Side of the Moon"));
-            Assert.Equal(expectedEndCDOutput.ToString(),
+            Assert.AreEqual(expectedEndCDOutput.ToString(),
                 homeTheater.EndCd());
         }
         #endregion//TestHomeTheaterCD
 
         #region TestHomeTheaterRadio
-        [Fact]
+        [Test]
         public void TestHomeTheaterRadio()
         {
             expectedListenToRadioOutput.Append("Tuning in the airwaves...\n");
@@ -145,9 +143,9 @@ namespace UnitTests
             expectedEndRadioOutput.Append("Top-O-Line Amplifier off\n");
 
 
-            Assert.Equal(expectedListenToRadioOutput.ToString(),
+            Assert.AreEqual(expectedListenToRadioOutput.ToString(),
                 homeTheater.ListenToRadio(92.5));
-            Assert.Equal(expectedEndRadioOutput.ToString(),
+            Assert.AreEqual(expectedEndRadioOutput.ToString(),
                 homeTheater.EndRadio());
         }
         #endregion//TestHomeTheaterRadio

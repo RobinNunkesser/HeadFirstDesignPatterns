@@ -1,25 +1,24 @@
-using System;
-
 namespace HeadFirstDesignPatterns.Command.RemoteControl
 {
-	/// <summary>
-	/// Summary description for StereoOffCommand.
-	/// </summary>
-	public class StereoOffCommand :Command
-	{
-		Stereo stereo;
-		public StereoOffCommand(Stereo stereo)
-		{
-			this.stereo = stereo;
-		}
+    /// <summary>
+    /// Summary description for StereoOffCommand.
+    /// </summary>
+    public class StereoOffCommand : Command
+    {
+        Stereo stereo;
 
-		#region Command Members
+        public StereoOffCommand(Stereo stereo)
+        {
+            this.stereo = stereo;
+        }
 
-		public object Execute()
-		{
-			return stereo.Off();
-		}
+        #region Command Members
 
-		#endregion
-	}
+        public object Execute()
+        {
+            return stereo.Off();
+        }
+
+        #endregion
+    }
 }

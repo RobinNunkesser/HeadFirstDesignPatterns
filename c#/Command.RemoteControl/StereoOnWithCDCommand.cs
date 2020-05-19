@@ -1,27 +1,25 @@
-using System;
-
 namespace HeadFirstDesignPatterns.Command.RemoteControl
 {
-	/// <summary>
-	/// Summary description for StereoOnWithCDCommand.
-	/// </summary>
-	public class StereoOnWithCDCommand :Command
-	{
-		Stereo stereo;
-		public StereoOnWithCDCommand(Stereo stereo)
-		{
-			this.stereo = stereo;
-		}
+    /// <summary>
+    /// Summary description for StereoOnWithCDCommand.
+    /// </summary>
+    public class StereoOnWithCDCommand : Command
+    {
+        Stereo stereo;
 
-		#region Command Members
+        public StereoOnWithCDCommand(Stereo stereo)
+        {
+            this.stereo = stereo;
+        }
 
-		public object Execute()
-		{
-			return stereo.On() + 
-				"\n" + stereo.SetCD() +
-				"\n" + stereo.SetVolume(11);
-		}
+        #region Command Members
 
-		#endregion
-	}
+        public object Execute()
+        {
+            return stereo.On() + "\n" + stereo.SetCD() + "\n" +
+                   stereo.SetVolume(11);
+        }
+
+        #endregion
+    }
 }

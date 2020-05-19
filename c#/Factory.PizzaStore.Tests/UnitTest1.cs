@@ -1,16 +1,14 @@
-﻿using System;
-using HeadFirstDesignPatterns.Factory.PizzaStore;
-using Xunit;
+using NUnit.Framework;
 
-namespace UnitTests
+namespace HeadFirstDesignPatterns.Factory.PizzaStore.Tests
 {
-    public class FactoryPizzaStore
+    public class Tests
     {
         #region TestNYStyleCheesePizza
-        [Fact]
+        [Test]
         public void TestNYStyleCheesePizza()
         {
-            HeadFirstDesignPatterns.Factory.PizzaStore.PizzaStore nyStore =
+            PizzaStore nyStore =
                 new NYPizzaStore();
             Pizza pizza = nyStore.OrderPizza("cheese");
             string pizzaPrepareReturn = "Preparing NY Style Sauce and Cheese Pizza\n" +
@@ -19,16 +17,16 @@ namespace UnitTests
                 "Adding toppings:\n" +
                 "\tGreated Reggiano Cheese\n";
 
-            Assert.Equal(pizzaPrepareReturn, pizza.Prepare());
-            Assert.Equal("Bake for 25 minutes at 350 \n", pizza.Bake());
-            Assert.Equal("Cutting the pizza into diagonal slices \n", pizza.Cut());
-            Assert.Equal("Place pizza in official PizzaStore box \n", pizza.Box());
-            Assert.Equal("NY Style Sauce and Cheese Pizza", pizza.GetName());
+            Assert.AreEqual(pizzaPrepareReturn, pizza.Prepare());
+            Assert.AreEqual("Bake for 25 minutes at 350 \n", pizza.Bake());
+            Assert.AreEqual("Cutting the pizza into diagonal slices \n", pizza.Cut());
+            Assert.AreEqual("Place pizza in official PizzaStore box \n", pizza.Box());
+            Assert.AreEqual("NY Style Sauce and Cheese Pizza", pizza.GetName());
         }
         #endregion//TestNYStyleCheesePizza
 
         #region TestChicagoStyleCheesePizza
-        [Fact]
+        [Test]
         public void TestChicagoStyleCheesePizza()
         {
             HeadFirstDesignPatterns.Factory.PizzaStore.PizzaStore chicagoStore =
@@ -41,11 +39,11 @@ namespace UnitTests
                 "Adding toppings:\n" +
                 "\tShredded Mozzarella Cheese\n";
 
-            Assert.Equal(pizzaPrepareReturn, pizza.Prepare());
-            Assert.Equal("Bake for 25 minutes at 350 \n", pizza.Bake());
-            Assert.Equal("Cutting the pizza into square slices \n", pizza.Cut());
-            Assert.Equal("Place pizza in official PizzaStore box \n", pizza.Box());
-            Assert.Equal("Chicago Style Deep Dish Cheese Pizza", pizza.GetName());
+            Assert.AreEqual(pizzaPrepareReturn, pizza.Prepare());
+            Assert.AreEqual("Bake for 25 minutes at 350 \n", pizza.Bake());
+            Assert.AreEqual("Cutting the pizza into square slices \n", pizza.Cut());
+            Assert.AreEqual("Place pizza in official PizzaStore box \n", pizza.Box());
+            Assert.AreEqual("Chicago Style Deep Dish Cheese Pizza", pizza.GetName());
         }
         #endregion//TestChicagoStyleCheesePizza
     }

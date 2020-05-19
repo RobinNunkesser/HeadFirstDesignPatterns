@@ -1,22 +1,24 @@
-﻿using System;
-using HeadFirstDesignPatterns.Decorator.Starbuzz;
-using Xunit;
-namespace UnitTests
+using NUnit.Framework;
+
+namespace HeadFirstDesignPatterns.Decorator.Starbuzz.Tests
 {
-    public class DecoratorStarbuzz
+    public class Tests
     {
         #region TestExpresso
-        [Fact]
+
+        [Test]
         public void TestExpresso()
         {
             Beverage beverage = new Expresso();
-            Assert.Equal("Expresso $1.5", beverage.GetDescription() +
-                " $" + beverage.Cost());
+            Assert.AreEqual("Expresso $1.5",
+                beverage.GetDescription() + " $" + beverage.Cost());
         }
-        #endregion//TestExpresso
+
+        #endregion //TestExpresso
 
         #region TestExpressoWithSize
-        [Fact]
+
+        [Test]
         public void TestExpressoWithSize()
         {
             BeverageSize beverageSize = BeverageSize.GRANDE;
@@ -24,45 +26,52 @@ namespace UnitTests
             beverage.Size = beverageSize;
             beverage = new Mocha(beverage);
             beverage.Size = beverageSize;
-            Assert.Equal("Expresso, Mocha $1.9", beverage.GetDescription() +
-                " $" + beverage.Cost());
+            Assert.AreEqual("Expresso, Mocha $1.9",
+                beverage.GetDescription() + " $" + beverage.Cost());
         }
-        #endregion//TestExpressoWithSize
+
+        #endregion //TestExpressoWithSize
 
         #region TestHouseBlend
-        [Fact]
+
+        [Test]
         public void TestHouseBlend()
         {
             Beverage beverage = new HouseBlend();
             beverage = new Mocha(beverage);
             beverage = new SteamedMilk(beverage);
-            Assert.Equal("House Blend Coffee, Mocha, Steamed Milk $1.09", beverage.GetDescription() +
-                " $" + beverage.Cost());
+            Assert.AreEqual("House Blend Coffee, Mocha, Steamed Milk $1.09",
+                beverage.GetDescription() + " $" + beverage.Cost());
         }
-        #endregion//TestHouseBlend
+
+        #endregion //TestHouseBlend
 
         #region TestDarkRoast
-        [Fact]
+
+        [Test]
         public void TestDarkRoast()
         {
             Beverage beverage = new DarkRoast();
             beverage = new Mocha(beverage);
             beverage = new Soy(beverage);
-            Assert.Equal("Dark Roast Coffee, Mocha, Soy $1.34", beverage.GetDescription() +
-                " $" + beverage.Cost());
+            Assert.AreEqual("Dark Roast Coffee, Mocha, Soy $1.34",
+                beverage.GetDescription() + " $" + beverage.Cost());
         }
-        #endregion//TestDarkRoast
+
+        #endregion //TestDarkRoast
 
         #region TestDecaf
-        [Fact]
+
+        [Test]
         public void TestDecaf()
         {
             Beverage beverage = new Decaf();
             beverage = new Mocha(beverage);
             beverage = new Whip(beverage);
-            Assert.Equal("Decaf Coffee, Mocha, Whip $1.35", beverage.GetDescription() +
-                " $" + beverage.Cost());
+            Assert.AreEqual("Decaf Coffee, Mocha, Whip $1.35",
+                beverage.GetDescription() + " $" + beverage.Cost());
         }
-        #endregion//TestDecaf    
+
+        #endregion //TestDecaf
     }
 }

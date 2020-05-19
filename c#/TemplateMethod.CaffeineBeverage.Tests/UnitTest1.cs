@@ -1,11 +1,9 @@
-﻿using System;
 using System.Text;
-using HeadFirstDesignPatterns.TemplateMethod.CaffeineBeverage;
-using Xunit;
+using NUnit.Framework;
 
-namespace UnitTests
+namespace HeadFirstDesignPatterns.TemplateMethod.CaffeineBeverage.Tests
 {
-    public class TemplateMethodCaffeine : IDisposable
+    public class Tests
     {
         #region Members
         Tea tea;
@@ -21,7 +19,7 @@ namespace UnitTests
         #endregion//Members
 
         #region Init()
-        public TemplateMethodCaffeine()
+        public Tests()
         {
             tea = new Tea();
             coffee = new Coffee();
@@ -53,31 +51,31 @@ namespace UnitTests
         #endregion//TearDown Dispose()
 
         #region TestTea
-        [Fact]
+        [Test]
         public void TestTea()
         {
             teaResult.Append("Boiling water\n");
             teaResult.Append("Steeping the tea\n");
             teaResult.Append("Pouring into cup\n");
             teaResult.Append("Adding lemon\n");
-            Assert.Equal(teaResult.ToString(), tea.PrepareRecipe());
+            Assert.AreEqual(teaResult.ToString(), tea.PrepareRecipe());
         }
         #endregion//TestTea
 
         #region TestCoffee
-        [Fact]
+        [Test]
         public void TestCoffee()
         {
             coffeeResult.Append("Boiling water\n");
             coffeeResult.Append("Dripping coffee through filter\n");
             coffeeResult.Append("Pouring into cup\n");
             coffeeResult.Append("Adding sugar and milk\n");
-            Assert.Equal(coffeeResult.ToString(), coffee.PrepareRecipe());
+            Assert.AreEqual(coffeeResult.ToString(), coffee.PrepareRecipe());
         }
         #endregion//TestCoffee
 
         #region TestCoffeeWithHook
-        [Fact]
+        [Test]
         public void TestCoffeeWithHook()
         {
             if (coffeeWithHook.CustomerWantsCondiments())
@@ -86,7 +84,7 @@ namespace UnitTests
                 coffeeWithHookYesResult.Append("Dripping coffee through filter\n");
                 coffeeWithHookYesResult.Append("Pouring into cup\n");
                 coffeeWithHookYesResult.Append("Adding sugar and milk\n");
-                Assert.Equal(coffeeWithHookYesResult.ToString(),
+                Assert.AreEqual(coffeeWithHookYesResult.ToString(),
                     coffeeWithHook.PrepareRecipe());
             }
             else
@@ -94,14 +92,14 @@ namespace UnitTests
                 coffeeWithHookNoResult.Append("Boiling water\n");
                 coffeeWithHookNoResult.Append("Dripping coffee through filter\n");
                 coffeeWithHookNoResult.Append("Pouring into cup\n");
-                Assert.Equal(coffeeWithHookNoResult.ToString(),
+                Assert.AreEqual(coffeeWithHookNoResult.ToString(),
                     coffeeWithHook.PrepareRecipe());
             }
         }
         #endregion//TestCoffeeWithHook
 
         #region TestTeaWithHook
-        [Fact]
+        [Test]
         public void TestTeaWithHook()
         {
             if (teaWithHook.CustomerWantsCondiments())
@@ -110,7 +108,7 @@ namespace UnitTests
                 teaWithHookYesResult.Append("Steeping the tea\n");
                 teaWithHookYesResult.Append("Pouring into cup\n");
                 teaWithHookYesResult.Append("Adding lemon\n");
-                Assert.Equal(teaWithHookYesResult.ToString(),
+                Assert.AreEqual(teaWithHookYesResult.ToString(),
                     teaWithHook.PrepareRecipe());
             }
             else
@@ -118,10 +116,11 @@ namespace UnitTests
                 teaWithHookNoResult.Append("Boiling water\n");
                 teaWithHookNoResult.Append("Steeping the tea\n");
                 teaWithHookNoResult.Append("Pouring into cup\n");
-                Assert.Equal(teaWithHookNoResult.ToString(),
+                Assert.AreEqual(teaWithHookNoResult.ToString(),
                     teaWithHook.PrepareRecipe());
             }
         }
         #endregion//TestTeaWithHook
+        
     }
 }
