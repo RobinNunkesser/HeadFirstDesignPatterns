@@ -27,8 +27,8 @@ namespace HeadFirstDesignPatterns.Strategy.Duck.Tests
             Assert.AreEqual("Quack", ModelDuck.PerformQuack());
             Assert.AreEqual("I can't fly.", ModelDuck.PerformFly());
 
-            ModelDuck.FlyBehavoir = new FlyRocketPowered();
-            Assert.AreEqual("I'm flying with a rocket!", ModelDuck.FlyBehavoir.Fly());
+            ModelDuck.FlyBehavior = new FlyRocketPowered();
+            Assert.AreEqual("I'm flying with a rocket!", ModelDuck.FlyBehavior.Fly());
             Assert.AreEqual("I'm flying with a rocket!", ModelDuck.PerformFly());
 
             ModelDuck.QuackBehavior = new MuteQuack();
