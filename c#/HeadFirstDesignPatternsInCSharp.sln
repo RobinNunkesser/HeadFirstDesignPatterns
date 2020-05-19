@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adapter.Birds.Tests", "Adap
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Observer.WeatherData.Tests", "Observer.WeatherData.Tests\Observer.WeatherData.Tests.csproj", "{E1D26FCC-FD20-481F-B7E8-201AA2A8320E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Command.RemoteControl.Tests", "Command.RemoteControl.Tests\Command.RemoteControl.Tests.csproj", "{98718D6A-EA33-4D93-863A-CB897CCB0986}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -79,5 +81,9 @@ Global
 		{E1D26FCC-FD20-481F-B7E8-201AA2A8320E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E1D26FCC-FD20-481F-B7E8-201AA2A8320E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E1D26FCC-FD20-481F-B7E8-201AA2A8320E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{98718D6A-EA33-4D93-863A-CB897CCB0986}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98718D6A-EA33-4D93-863A-CB897CCB0986}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98718D6A-EA33-4D93-863A-CB897CCB0986}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98718D6A-EA33-4D93-863A-CB897CCB0986}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

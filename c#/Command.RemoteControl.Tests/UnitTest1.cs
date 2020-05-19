@@ -1,12 +1,11 @@
-﻿using System;
-using HeadFirstDesignPatterns.Command.RemoteControl;
-using Xunit;
-namespace UnitTests
+using NUnit.Framework;
+
+namespace HeadFirstDesignPatterns.Command.RemoteControl.Tests
 {
-    public class CommandRemoteControl
+    public class Tests
     {
         #region TestTurningSimpleOn
-        [Fact]
+        [Test]
         public void TestTurningSimpleOn()//Command Pattern Client
         {
             //Command Pattern Invoker
@@ -24,17 +23,17 @@ namespace UnitTests
             //Passing the light on command to the invoker
             remote.SetCommand(lightOn);
             //Simulate the button being pressed on the invoker
-            Assert.Equal("Kitchen light is on", remote.ButtonWasPressed());
+            Assert.AreEqual("Kitchen light is on", remote.ButtonWasPressed());
 
             //Passing the garage door open command to the invoker
             remote.SetCommand(garageDoorOpen);
             //Simulate the button being pressed on the invoker
-            Assert.Equal("Garage door is up", remote.ButtonWasPressed());
+            Assert.AreEqual("Garage door is up", remote.ButtonWasPressed());
         }
         #endregion//TestTurningSimpleOn
 
         #region TestTurningOn
-        [Fact]
+        [Test]
         public void TestTurningOn()//Command Pattern Client
         {
             //Command Pattern Invoker
@@ -75,24 +74,24 @@ namespace UnitTests
             remote.SetCommand(2, ceilingFanOn, ceilingFanOff);
             remote.SetCommand(3, stereoOnWithCD, stereoOff);
 
-            Assert.Equal("Living Room light is on",
+            Assert.AreEqual("Living Room light is on",
                 remote.OnButtonWasPushed(0));
-            Assert.Equal("Living Room light is off",
+            Assert.AreEqual("Living Room light is off",
                 remote.OffButtonWasPushed(0));
 
-            Assert.Equal("Kitchen light is on",
+            Assert.AreEqual("Kitchen light is on",
                 remote.OnButtonWasPushed(1));
-            Assert.Equal("Kitchen light is off",
+            Assert.AreEqual("Kitchen light is off",
                 remote.OffButtonWasPushed(1));
-            Assert.Equal("Living Room ceiling fan is on high",
+            Assert.AreEqual("Living Room ceiling fan is on high",
                 remote.OnButtonWasPushed(2));
-            Assert.Equal("Living Room ceiling fan is off",
+            Assert.AreEqual("Living Room ceiling fan is off",
                 remote.OffButtonWasPushed(2));
-            Assert.Equal("Living Room stereo is on\n" +
-                "Living Room stereo is set for CD input\n" +
-                "Living Room Stereo volume set to 11",
+            Assert.AreEqual("Living Room stereo is on\n" +
+                            "Living Room stereo is set for CD input\n" +
+                            "Living Room Stereo volume set to 11",
                 remote.OnButtonWasPushed(3));
-            Assert.Equal("Living Room stereo is off",
+            Assert.AreEqual("Living Room stereo is off",
                 remote.OffButtonWasPushed(3));
 
             //          Console.WriteLine(remote.toString());
