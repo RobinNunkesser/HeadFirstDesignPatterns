@@ -11,15 +11,9 @@ namespace HeadFirstDesignPatterns.Adapter.Birds
 
         #region Duck Members
 
-        public string Quack()
-        {
-            return "Quack";
-        }
+        public string Quack() => "Quack";
 
-        public string Fly()
-        {
-            return "I'm flying";
-        }
+        public string Fly() => "I'm flying";
 
         #endregion
     }

@@ -11,15 +11,9 @@ namespace HeadFirstDesignPatterns.Adapter.Birds
 
         #region Turkey Members
 
-        public string Gobble()
-        {
-            return "Gooble, gooble";
-        }
+        public string Gobble() => "Gooble, gooble";
 
-        public string Fly()
-        {
-            return "I'm flying a short distance";
-        }
+        public string Fly() => "I'm flying a short distance";
 
         #endregion
     }

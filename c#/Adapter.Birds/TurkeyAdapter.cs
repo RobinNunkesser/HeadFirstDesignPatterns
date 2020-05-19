@@ -9,17 +9,11 @@ namespace HeadFirstDesignPatterns.Adapter.Birds
     {
         Turkey turkey;
 
-        public TurkeyAdapter(Turkey turkey)
-        {
-            this.turkey = turkey;
-        }
+        public TurkeyAdapter(Turkey turkey) => this.turkey = turkey;
 
         #region Duck Members
 
-        public string Quack()
-        {
-            return turkey.Gobble();
-        }
+        public string Quack() => turkey.Gobble();
 
         public string Fly()
         {

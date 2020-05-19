@@ -7,22 +7,13 @@ namespace HeadFirstDesignPatterns.Adapter.Birds
     {
         Duck duck;
 
-        public DuckAdapter(Duck duck)
-        {
-            this.duck = duck;
-        }
+        public DuckAdapter(Duck duck) => this.duck = duck;
 
         #region Turkey Members
 
-        public string Gobble()
-        {
-            return duck.Quack();
-        }
+        public string Gobble() => duck.Quack();
 
-        public string Fly()
-        {
-            return duck.Fly();
-        }
+        public string Fly() => duck.Fly();
 
         #endregion
     }
